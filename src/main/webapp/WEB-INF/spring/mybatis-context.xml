@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="datasource"/> <!-- dataSource 가져오기// 다른 파일이지만 context.xml 다 불러오기로 해서 이렇게 써도 됨 -->
+		<property name="mapperLocations" value="classpath*:kr/project/practice/dao/*.xml"/>
+ 	</bean> 	
+ 	
+	<!--  마이바티스를 별다른 코드 없이 사용할수 있도록 해 주는 설정  -->
+	<mybatis-spring:scan base-package="kr.project.practice.dao"/>
+
+
+</beans>
