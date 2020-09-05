@@ -23,4 +23,12 @@
 		DELETE FROM members WHERE id = #{param1}
 	</delete>
 
+	<select id="memdetail" resultType="kr.project.practice.dto.MemberDTO">
+		SELECT * FROM members WHERE id = #{param1}
+	</select>
+	
+	<update id="memupdate" parameterType="kr.project.practice.dto.MemberDTO">
+		UPDATE members SET name=#{name}, age =#{age}, gender=#{gender}, email=#{email} WHERE id = #{id}
+	</update>	
+
 </mapper>

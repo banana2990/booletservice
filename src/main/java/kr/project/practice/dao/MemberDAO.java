@@ -17,4 +17,8 @@ public interface MemberDAO {
 	ArrayList<MemberDTO> memberlist();
 	
 	int memdelete(String id);
+
+	MemberDTO memdetail(String id);
+
+	int memupdate(MemberDTO dto);
 }

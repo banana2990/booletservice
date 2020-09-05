@@ -18,6 +18,15 @@
 		}
 		</style>
 	<script src = "https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+	
+	<!-- 로그인 세션 체크 -->
+	<c:if test="${sessionScope.loginId eq null}">
+		<script>
+		alert("로그인이 필요한 서비스입니다");
+		location.href="./";
+		</script>
+	</c:if>	
+	
 	</head>
 	
 	<c:if test="${sessionScope.loginId != null}">

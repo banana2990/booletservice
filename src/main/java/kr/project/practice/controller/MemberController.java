@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.project.practice.dto.MemberDTO;
 import kr.project.practice.service.MemberService;
 
 @Controller
@@ -89,5 +91,17 @@ public class MemberController {
 	public ModelAndView memdelete(@RequestParam String id) {
 		logger.info("삭제할 회원:" + id);		
 		return service.memdelete(id);
+	}
+	
+	@RequestMapping(value= "/memdetail", method= RequestMethod.GET)
+	public ModelAndView memdetail(@RequestParam String id) {
+		logger.info("수정할 회원:" + id);		
+		return service.memdetail(id);
+	}
+	
+	@RequestMapping(value = "/memupdate", method = RequestMethod.POST)
+	public ModelAndView memupdate(@ModelAttribute MemberDTO dto) {
+		logger.info("회원정보 수정하기: "+dto.getId());
+		return service.memupdate(dto);
 	}
 }

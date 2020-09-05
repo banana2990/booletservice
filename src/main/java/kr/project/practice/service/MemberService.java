@@ -79,6 +79,28 @@ public class MemberService {
 		mav.setViewName("redirect:admin");
 		return mav;
 	}
+
+	public ModelAndView memdetail(String id) {
+		ModelAndView mav = new ModelAndView();
+		MemberDTO dto = dao.memdetail(id);
+		logger.info("회원정보보기: "+dto.getId()+" 회원성별: "+dto.getGender());	
+		mav.addObject("memdetail",dto);
+		mav.setViewName("memdetail");
+		return mav;
+	}
+
+	public ModelAndView memupdate(MemberDTO dto) {
+		ModelAndView mav = new ModelAndView();
+		int success = dao.memupdate(dto);
+		logger.info("success : "+success);
+		String page = "redirect:/memdetail?id=\"+dto.getId();";
+		if(success > 0) {
+			page = "redirect:/admin";
+		}
+		mav.setViewName(page);
+		return mav;
+	}
+	
 	
 	
 	

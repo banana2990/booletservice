@@ -59,8 +59,5 @@
 	if(msg!=""){
 		alert(msg);
 	}
-	
-	console.log("${sessionScope.loginId}");
-	
 	</script>
 </html>

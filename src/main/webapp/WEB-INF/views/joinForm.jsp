@@ -24,7 +24,7 @@
 	<body>
 	
 	<div>
-		<p> ID: <input type="text" name="id"/> <input type="button" onclick="ovrchk()" value="중복확인"> </p>
+		<p> ID: <input type="text" name="id" id="overlay"/></p>
 		<p> PW: <input type="password" name="pw"/></p>
 		<p> NAME: <input type="text" name="name"/></p>
 		<p> AGE: <input type="number" name="age"/></p>
@@ -41,7 +41,7 @@
 	
 	var overChk = false;
 	
-	function ovrchk(){
+	$("#overlay").focusout(function(){
 		var id = $("input[name='id']").val(); // id값 가져오기
 		console.log(id); // 잘 들어오는 지 확인: 1차
 		
@@ -64,8 +64,7 @@
 				console.log(e);
 			}			
 		});
-	}
-	
+	});
 	
 	function join(){
 		if(overChk){
