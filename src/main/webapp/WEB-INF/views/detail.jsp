@@ -47,8 +47,8 @@
 	</table>
 	<br>
 	<a href = "./main"> 목록보기 </a>
-	<br>
-	<c:if test="{sessionScope.loginId eq ${info.id }}">
+	<br/><br/> <!-- 본인 글일때만 수정 혹은 삭제 가능 -->
+	<c:if test="${sessionScope.loginId eq info.id}">
 	<button onclick="location.href='updateForm?idx=${info.idx}'"> 수정하기 </button>
 	<button onclick="location.href='delete?idx=${info.idx}'"> 삭제하기</button>
 	</c:if>
