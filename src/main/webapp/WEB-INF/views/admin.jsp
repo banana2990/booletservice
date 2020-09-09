@@ -42,7 +42,7 @@
 				<th> 아이디 </th>
 				<th> 이름 </th>
 				<th> 이메일 </th>
-				<th> 삭제 </th>
+				<th> 회원삭제 </th>
 			</tr>						
 	
 		<c:forEach items="${list }" var ="dto">
@@ -50,7 +50,7 @@
 				<td> <a href="memdetail?id=${dto.id}"> ${dto.id}</a></td>
 				<td> ${dto.name} </td>
 				<td> ${dto.email} </td>
-				<td> <a href="memdelete?id=${dto.id}"> 회원삭제 </a></td>
+				<td> <a href="memdelete?id=${dto.id}"> 삭제 </a></td>
 			</tr>	
 		</c:forEach>
 	
