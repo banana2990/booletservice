@@ -62,8 +62,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "/overlay", method= RequestMethod.GET)
-	public @ResponseBody HashMap<String, Object> overlay(RedirectAttributes rAttr, 
-			@RequestParam HashMap<String, String> param) {
+	public @ResponseBody HashMap<String, Object> overlay(@RequestParam HashMap<String, String> param) {
 		logger.info("param: "+param.get("id"));
 		String id = param.get("id");
 		HashMap<String, Object> map= new HashMap<String, Object> ();
@@ -72,7 +71,7 @@ public class MemberController {
 		map.put("overlay", overlay);
 		return map;
 	}
-	
+		
 	@RequestMapping(value= "/logout", method= RequestMethod.GET)
 	public String logout(HttpSession session, Model model) {
 		logger.info("로그인한 ID: "+session.getAttribute("loginId"));
@@ -104,4 +103,14 @@ public class MemberController {
 		logger.info("회원정보 수정하기: "+dto.getId());
 		return service.memupdate(dto);
 	}
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
 }
